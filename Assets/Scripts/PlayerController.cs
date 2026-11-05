@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         float xValue = Input.GetAxis("Horizontal");
         float yValue = 0f;
         float zValue = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(xValue,yValue,zValue);
+        Vector3 direction = new Vector3(xValue, yValue, zValue);
         bool isWalking = direction.magnitude > 0;
 
         animation.SetBool("isMoving", isWalking);
