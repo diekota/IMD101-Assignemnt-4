@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     // player speed
     [SerializeField] float playerSpeed = 3.0f;
+    [SerializeField] float turnSpeed = 150f;
 
     // x and y movement varaibles
     private float movementX;
@@ -28,20 +29,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xValue = Input.GetAxis("Horizontal");
-        float yValue = 0f;
-        float zValue = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(xValue, yValue, zValue);
-        bool isWalking = direction.magnitude > 0;
+        float turn = Input.GetAxis("Horizontal");
+        float move = Input.GetAxis("Vertical");
 
-        animation.SetBool("isMoving", isWalking);
+        transform.Rotate(0f, turn * turnSpeed * Time.deltaTime, 0f);
+        transform.Translate(Vector3.forward * move * playerSpeed * Time.deltaTime);
 
-        if (direction.magnitude > 0.1f)
-        {
-            transform.rotation = Quaternion.LookRotation(direction);
-            transform.Translate(direction.normalized * playerSpeed * Time.deltaTime, Space.World);
-        }
-
+        animation.SetBool("isMoving", Mathf.Abs(move) > 0.1f);
       
         
     }
