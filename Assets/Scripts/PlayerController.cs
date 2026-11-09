@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float turnSpeed = 150f;
 
     // x and y movement varaibles
-    private float movementX;
-    private float movementY;
+    private float move;
+    private float turn;
 
     // rigidbidy and animator assignment
     private Rigidbody rb;
@@ -29,14 +29,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float turn = Input.GetAxis("Horizontal");
-        float move = Input.GetAxis("Vertical");
-
-        transform.Rotate(0f, turn * turnSpeed * Time.deltaTime, 0f);
-        transform.Translate(Vector3.forward * move * playerSpeed * Time.deltaTime);
-
+        turn = Input.GetAxis("Horizontal");
+        move = Input.GetAxis("Vertical");
         animation.SetBool("isMoving", Mathf.Abs(move) > 0.1f);
       
-        
+    }
+
+    void FixedUpdate()
+    {
+        Quaternion turnBy = Quaternion.Euler(0f, turn * turnSpeed * Time.fixedDeltaTime, 0f);
+        rb.MoveRotation(rb.rotation * turnBy);
+        rb.MovePosition(rb.position + transform.forward * move * playerSpeed * Time.fixedDeltaTime);
     }
 }
