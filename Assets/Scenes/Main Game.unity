@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09373f5875414da6bcebc36fc9ddbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  playerSpeed: 3.5
+  playerSpeed: 3.6
   turnSpeed: 150
   countText: {fileID: 1664172828}
 --- !u!4 &696826357 stripped
@@ -3460,10 +3460,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.44889033
+  m_Radius: 0.38992786
   m_Height: 1.575751
   m_Direction: 1
-  m_Center: {x: 0.05110967, y: 0.85779816, z: 0.0000000028040428}
+  m_Center: {x: -0.007852823, y: 0.67, z: -2.6007083e-10}
 --- !u!1001 &702879835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4597,7 +4597,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.45
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -6939,7 +6939,7 @@ Transform:
   m_GameObject: {fileID: 1430025862}
   serializedVersion: 2
   m_LocalRotation: {x: 0.07369313, y: -0.91571784, z: 0.19714886, w: 0.34229013}
-  m_LocalPosition: {x: 14.533388, y: 2.5200002, z: -1.1420543}
+  m_LocalPosition: {x: 14.762967, y: 2.6780002, z: -0.87786937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8384,7 +8384,7 @@ Transform:
   m_GameObject: {fileID: 1650001837}
   serializedVersion: 2
   m_LocalRotation: {x: 0.07369313, y: -0.91571784, z: 0.19714886, w: 0.34229013}
-  m_LocalPosition: {x: 14.533388, y: 2.5200002, z: -1.1420543}
+  m_LocalPosition: {x: 14.762967, y: 2.6780002, z: -0.87786937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9003,7 +9003,7 @@ Transform:
   m_GameObject: {fileID: 1750471447}
   serializedVersion: 2
   m_LocalRotation: {x: 0.21047172, y: 0, z: 0, w: 0.9775999}
-  m_LocalPosition: {x: -0, y: 2.52, z: -2.17}
+  m_LocalPosition: {x: -0, y: 2.678, z: -2.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
