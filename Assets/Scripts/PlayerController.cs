@@ -1,4 +1,6 @@
+using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,5 +42,31 @@ public class PlayerController : MonoBehaviour
         Quaternion turnBy = Quaternion.Euler(0f, turn * turnSpeed * Time.fixedDeltaTime, 0f);
         rb.MoveRotation(rb.rotation * turnBy);
         rb.MovePosition(rb.position + transform.forward * move * playerSpeed * Time.fixedDeltaTime);
+    }
+
+    void SetCount()
+    {
+        if (count >= 6)
+        {
+            SceneManager.LoadScene("Win Scene");
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            other.gameObject.SetActive(false);
+            count++;
+            SetCount();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene("Lose Scene");
+        }
     }
 }
