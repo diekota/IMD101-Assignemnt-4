@@ -1,6 +1,9 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     // count variable
     private int count;
-
+    public TextMeshProUGUI countText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +29,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animation = GetComponent<Animator>();
         count = 0;
+        SetCountText();
     }
 
     // Update is called once per frame
@@ -44,8 +48,9 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + transform.forward * move * playerSpeed * Time.fixedDeltaTime);
     }
 
-    void SetCount()
+    void SetCountText()
     {
+        countText.text = count.ToString() + "/6";
         if (count >= 6)
         {
             SceneManager.LoadScene("Win Scene");
@@ -58,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count++;
-            SetCount();
+            SetCountText();
         }
     }
 
