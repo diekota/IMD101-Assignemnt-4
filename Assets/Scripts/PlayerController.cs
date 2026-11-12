@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
         Quaternion turnBy = Quaternion.Euler(0f, turn * turnSpeed * Time.fixedDeltaTime, 0f);
         rb.MoveRotation(rb.rotation * turnBy);
         rb.MovePosition(rb.position + transform.forward * move * playerSpeed * Time.fixedDeltaTime);
+        rb.angularVelocity = Vector3.zero;
     }
 
     void SetCountText()
