@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class IdleMoving : MonoBehaviour
 {
@@ -15,5 +16,10 @@ public class IdleMoving : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene("Main Game");
     }
 }

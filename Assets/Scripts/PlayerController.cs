@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     private int count;
     public TextMeshProUGUI countText;
 
+    // sound effect
+    public AudioClip pickupSound;
+    private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,6 +34,7 @@ public class PlayerController : MonoBehaviour
         animation = GetComponent<Animator>();
         count = 0;
         SetCountText();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,6 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count++;
+            audioSource.PlayOneShot(pickupSound);
             SetCountText();
         }
     }
